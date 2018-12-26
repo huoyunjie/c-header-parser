@@ -1,0 +1,136 @@
+INFO: Ignoring file: ../test/Employee.bin
+DEBUG: Found header file: ../test/Employee.h
+DEBUG: Parsing file - ../test/Employee.h
+INFO: parsing line: [#ifndef _EMPLOYEE_]
+INFO: parsing line: [#define _EMPLOYEE_]
+INFO: parsing line: [#define MAX_NAME_LENGTH 16]
+INFO: parsing line: [int i=1;]
+INFO: parsing line: [// Hometown]
+INFO: parsing line: [typedef enum Home]
+INFO: parsing line: [{]
+INFO: parsing line: [Anhui = 1,]
+INFO: parsing line: [Beijing=9,]
+INFO: parsing line: [Shanghai,]
+INFO: parsing line: [Zhejiang = 33]
+INFO: parsing line: [}Home;]
+INFO: parsing line: [/**/]
+INFO: parsing line: [typedef struct Manager {]
+INFO: parsing line: [char a;]
+INFO: parsing line: [int level;]
+INFO: parsing line: [}Manager;]
+INFO: parsing line: [//*]
+INFO: parsing line: [typedef struct _Engineer]
+INFO: parsing line: [{]
+INFO: parsing line: [char a;]
+INFO: parsing line: [char b;]
+INFO: parsing line: [short c;]
+INFO: parsing line: [int skills;]
+INFO: parsing line: [}_Engineer;//*/]
+INFO: parsing line: [typedef struct]
+INFO: parsing line: [{]
+INFO: parsing line: [char name[MAX_NAME_LENGTH];]
+INFO: parsing line: [int  age;]
+INFO: parsing line: [enum Home home;]
+INFO: parsing line: [}Person;]
+INFO: parsing line: [typedef union Position]
+INFO: parsing line: [{]
+INFO: parsing line: [struct Manager manager;]
+INFO: parsing line: [//Engineer engineer;]
+INFO: parsing line: [struct Engineer]
+INFO: parsing line: [{]
+INFO: parsing line: [//char a;]
+INFO: parsing line: [//short b;]
+INFO: parsing line: [int skills;]
+INFO: parsing line: [}engineer;]
+INFO: parsing line: [}Position;]
+INFO: parsing line: [typedef struct Employee]
+INFO: parsing line: [{]
+INFO: parsing line: [int  id;]
+INFO: parsing line: [Person  person;]
+INFO: parsing line: [union Position position;]
+INFO: parsing line: [}Employee;]
+INFO: parsing line: [union _Position{]
+INFO: parsing line: [int level;]
+INFO: parsing line: [int skills;]
+INFO: parsing line: [};]
+INFO: parsing line: [#endif]
+INFO: Skip unsupported pre-processing line - #ifndef _EMPLOYEE_
+DEBUG: Ignore define - #define _EMPLOYEE_
+INFO: Add enum member: Anhui
+INFO: Add enum member: Beijing
+INFO: Add enum member: Shanghai
+INFO: Add enum member: Zhejiang
+INFO: Add member: a
+INFO: Add member: level
+INFO: Add member: a
+INFO: Add member: b
+INFO: Add member: c
+INFO: Add member: skills
+INFO: Add member: name
+INFO: Add member: age
+INFO: Add member: skills
+INFO: Add member: id
+INFO: Add member: person
+INFO: Add member: level
+INFO: Add member: skills
+INFO: Skip unsupported pre-processing line - #endif
+
+constant values:
+--------------------
+        MAX_NAME_LENGTH  = 16
+        i        = 1
+
+struct definitions:
+--------------------
+struct Employee:
+        int     id      (4)
+        Person  person  (24)
+        Position        position        (4)
+        (size = 32)
+
+struct Engineer:
+        int     skills  (4)
+        (size = 4)
+
+struct Manager:
+        char    a       (1)
+        char    _padding_field_ (3)
+        int     level   (4)
+        (size = 4)
+
+struct Person:
+        char    name[16]        (16)
+        int     age     (4)
+        Home    home    (4)
+        (size = 24)
+
+struct _Engineer:
+        char    a       (1)
+        char    b       (1)
+        short   c       (2)
+        int     skills  (4)
+        (size = 8)
+
+
+union definitions:
+--------------------
+union Position:
+        Manager manager (4)
+        Engineer        engineer        (4)
+        (size = 4)
+
+union _Position:
+        int     level   (4)
+        int     skills  (4)
+        (size = 4)
+
+
+enum definitions:
+--------------------
+enum Home:
+        Anhui(1)
+        Beijing(9)
+        Shanghai(10)
+        Zhejiang(33)
+
+
